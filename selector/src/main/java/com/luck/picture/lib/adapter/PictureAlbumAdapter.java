@@ -19,6 +19,7 @@ import com.luck.picture.lib.entity.LocalMediaFolder;
 import com.luck.picture.lib.interfaces.OnAlbumItemClickListener;
 import com.luck.picture.lib.style.AlbumWindowStyle;
 import com.luck.picture.lib.style.PictureSelectorStyle;
+import com.luck.picture.lib.utils.AlbumNameHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,7 @@ public class PictureAlbumAdapter extends RecyclerView.Adapter<PictureAlbumAdapte
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         LocalMediaFolder folder = albumList.get(position);
-        String name = folder.getFolderName();
+        String name = AlbumNameHelper.translateAlbumName(folder.getFolderName());
         int imageNum = folder.getFolderTotalNum();
         String imagePath = folder.getFirstImagePath();
         holder.tvSelectTag.setVisibility(folder.isSelectTag() ? View.VISIBLE : View.INVISIBLE);
