@@ -1,8 +1,10 @@
-apply plugin: 'com.android.library'
-
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 android {
     compileSdkVersion 29
-
+    namespace 'com.yalantis.ucrop'
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 29
@@ -39,3 +41,19 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:${cfgs.version_recyclerview}"
     implementation "com.google.code.gson:gson:${cfgs.gson}"
 }
+
+def libVersion = rootProject.ext.has("libVersion") ? rootProject.ext.libVersion : "3.11.7"
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'io.github.zwx-97'
+                artifactId = 'ucrop' // 👈 子模块 artifactId
+                version = libVersion
+            }
+        }
+    }
+}
+

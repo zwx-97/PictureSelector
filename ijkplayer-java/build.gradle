@@ -1,12 +1,14 @@
-apply plugin: 'com.android.library'
-
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 android {
     // http://tools.android.com/tech-docs/new-build-system/tips
     //noinspection GroovyAssignabilityCheck
     compileSdkVersion 30
     //noinspection GroovyAssignabilityCheck
     buildToolsVersion "30.0.3"
-
+    namespace 'com.luck.lib.ijkplayer'
     lintOptions {
         abortOnError false
     }
@@ -24,5 +26,20 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+def libVersion = rootProject.ext.has("libVersion") ? rootProject.ext.libVersion : "3.11.7"
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'io.github.zwx-97'
+                artifactId = 'ijkplayer-java' // 👈 子模块 artifactId
+                version = libVersion
+            }
+        }
+    }
 }
 

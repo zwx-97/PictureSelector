@@ -1,21 +1,12 @@
-apply plugin: 'com.android.library'
-
-buildscript {
-    repositories {
-        maven { url 'https://maven.aliyun.com/repository/public' }
-        maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
-        gradlePluginPortal()
-        google()
-    }
-    dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
-    }
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
 }
+
 
 android {
     compileSdkVersion 27
-
+    namespace 'com.luck.lib.compress'
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 27
@@ -34,3 +25,18 @@ ext {
 
 
 dependencies {}
+
+def libVersion = rootProject.ext.has("libVersion") ? rootProject.ext.libVersion : "3.11.7"
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'io.github.zwx-97'
+                artifactId = 'compress' // 👈 子模块 artifactId
+                version = libVersion
+            }
+        }
+    }
+}
