@@ -32,6 +32,5 @@ ext {
     PUBLISH_ARTIFACT_ID = "compress"
 }
 
-apply from: '../publish.gradle'
 
 dependencies {}

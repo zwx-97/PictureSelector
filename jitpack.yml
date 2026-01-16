@@ -1,0 +1,10 @@
+jdk:
+  - openjdk17
+
+install:
+  - ./gradlew clean
+    :compress:publishToMavenLocal
+    :ucrop:publishToMavenLocal
+    :camerax:publishToMavenLocal
+    :ijkplayer-java:publishToMavenLocal
+    :selector:publishToMavenLocal

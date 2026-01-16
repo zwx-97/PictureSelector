@@ -1,6 +1,10 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
 android {
+    namespace 'com.luck.picture.lib'
     compileSdk 34
 
     defaultConfig {
@@ -26,13 +30,13 @@ android {
     }
 }
 
-ext {
-    PUBLISH_ARTIFACT_ID = "pictureselector"
-}
 
-apply from: '../publish.gradle'
 
 dependencies {
+    api project(':compress')
+    api project(':ucrop')
+    api project(":camerax")
+    api project(":ijkplayer-java")
     implementation "androidx.appcompat:appcompat:${cfgs.version_appcompat}"
     implementation "androidx.recyclerview:recyclerview:${cfgs.version_recyclerview}"
     implementation "androidx.activity:activity:${cfgs.activity_version}"
@@ -40,4 +44,15 @@ dependencies {
     implementation "androidx.exifinterface:exifinterface:${cfgs.exifinterface_version}"
     implementation "androidx.viewpager2:viewpager2:${cfgs.viewpage2}"
     implementation "androidx.constraintlayout:constraintlayout:${cfgs.constraintlayout}"
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                artifactId = 'PictureSelector'
+                from components.release
+            }
+        }
+    }
 }
