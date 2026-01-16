@@ -33,10 +33,10 @@ android {
 
 
 dependencies {
-    api project(':compress')
-    api project(':ucrop')
-    api project(":camerax")
-    api project(":ijkplayer-java")
+    implementation  project(':compress')
+    implementation  project(':ucrop')
+    implementation  project(":camerax")
+    implementation  project(":ijkplayer-java")
     implementation "androidx.appcompat:appcompat:${cfgs.version_appcompat}"
     implementation "androidx.recyclerview:recyclerview:${cfgs.version_recyclerview}"
     implementation "androidx.activity:activity:${cfgs.activity_version}"
@@ -50,8 +50,10 @@ afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                artifactId = 'PictureSelector'
                 from components.release
+                groupId = "io.github.zwx-97"
+                artifactId = 'PictureSelector'
+                version = "3.11.6"
             }
         }
     }
