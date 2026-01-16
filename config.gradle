@@ -1,5 +1,5 @@
 ext {
-    libVersion = "3.11.7"
+    libVersion = "3.11.8"
     cfgs = [
             versionCode                   : 93,
             versionName                   : "v3.11.2",
