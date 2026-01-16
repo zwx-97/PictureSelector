@@ -57,7 +57,7 @@ public class PictureAlbumAdapter extends RecyclerView.Adapter<PictureAlbumAdapte
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         LocalMediaFolder folder = albumList.get(position);
-        String name = AlbumNameHelper.translateAlbumName(folder.getFolderName());
+        String name = AlbumNameHelper.translateAlbumName(folder.getFolderName(),selectorConfig.language);
         int imageNum = folder.getFolderTotalNum();
         String imagePath = folder.getFirstImagePath();
         holder.tvSelectTag.setVisibility(folder.isSelectTag() ? View.VISIBLE : View.INVISIBLE);

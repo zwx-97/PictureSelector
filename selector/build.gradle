@@ -34,7 +34,6 @@ android {
 
 dependencies {
     implementation  project(':compress')
-    implementation  project(':ucrop')
     implementation  project(":camerax")
     implementation  project(":ijkplayer-java")
     implementation "androidx.appcompat:appcompat:${cfgs.version_appcompat}"
