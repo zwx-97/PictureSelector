@@ -3,7 +3,6 @@ jdk:
 install:
   - ./gradlew clean
   - ./gradlew :compress:publishToMavenLocal
-  - ./gradlew :ucrop:publishToMavenLocal
   - ./gradlew :camerax:publishToMavenLocal
   - ./gradlew :ijkplayer-java:publishToMavenLocal
   - ./gradlew :selector:publishToMavenLocal

@@ -77,7 +77,6 @@ android {
 dependencies {
     implementation project(':selector')
     implementation  project(':compress')
-    implementation  project(':ucrop')
     implementation  project(":camerax")
     implementation  project(":ijkplayer-java")
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
