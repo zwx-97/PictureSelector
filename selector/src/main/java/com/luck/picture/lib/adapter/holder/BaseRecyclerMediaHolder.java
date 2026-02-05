@@ -65,8 +65,8 @@ public class BaseRecyclerMediaHolder extends RecyclerView.ViewHolder {
         this.selectorConfig = config;
         this.mContext = itemView.getContext();
         defaultColorFilter = StyleUtils.getColorFilter(mContext, R.color.ps_color_20);
-        selectColorFilter = StyleUtils.getColorFilter(mContext, R.color.ps_color_80);
-        maskWhiteColorFilter = StyleUtils.getColorFilter(mContext, R.color.ps_color_half_white);
+        selectColorFilter = StyleUtils.getColorFilter(mContext, R.color.ps_color_transparent);
+        maskWhiteColorFilter = StyleUtils.getColorFilter(mContext, R.color.ps_color_80);
         SelectMainStyle selectMainStyle = selectorConfig.selectorStyle.getSelectMainStyle();
         isSelectNumberStyle = selectMainStyle.isSelectNumberStyle();
         ivPicture = itemView.findViewById(R.id.ivPicture);
